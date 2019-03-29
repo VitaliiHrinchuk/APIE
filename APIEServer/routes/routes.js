@@ -6,11 +6,6 @@ const controller = require('../controllers/controller');
 
 // let model = new Model(db);
 
-router.get('/', (req,res)=>{
-    res.send({msg: 'hello'});
-
-  });
-
   // user auth
   // router.post('/api/user/login/', (req,res)=>{
   //     //check for request field
@@ -60,13 +55,13 @@ router.get('/', (req,res)=>{
 //         })
 //     })
 //   });
-router.post('/api/login', controller.loginUser)
+// router.post('/api/login', controller.loginUser)
 
-router.get('/api/flights/',controller.getAllFlights);
-router.post('/api/flights/', controller.postFlight);
+router.get('/flights/',controller.getAllFlights);
+router.post('/flights/', controller.postFlight);
 
-router.get('/api/user/:username', controller.getUser);
-router.post('/api/user/create/', controller.createUser);
+router.get('/user/:username', controller.getUser);
+router.post('/user/create/', controller.createUser);
 
 
 module.exports = router;

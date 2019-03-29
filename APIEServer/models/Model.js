@@ -28,10 +28,21 @@ class Model {
 
     // read all data about user by username
     readUser(username,callback){
-        let query = "SELECT * FROM `users` WHERE `username` = ?";
+        let query = "SELECT * FROM `users` WHERE `username` = ? LIMIT 1";
         this.db.query(query,[username], (err, result)=>{
-            return callback(err, result);
+            if(result.length === 0) return callback(err,false);
+            return callback(err, result[0]);
+   
         })
+        // return new Promise((resolve, reject)=>{
+        //     this.db.query(query,[username], (err, result)=>{
+        //         if(err) reject(err);
+        //         resolve(result);
+        //         // return callback(err, result);
+       
+        //     })
+        // })
+  
     }
 
     //create new flight
@@ -43,4 +54,4 @@ class Model {
     }
 }
 
-module.exports = Model;
+module.exports = new Model();

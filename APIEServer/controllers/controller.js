@@ -1,7 +1,7 @@
-const Model = require('../models/Model');
+const model = require('../models/Model');
 const bcrypt = require('bcrypt');
 
-let model = new Model();
+
 
 function validateExistFields(current, required){
     for (let i = 0; i < current.length; i++) {
@@ -15,13 +15,13 @@ function validateExistFields(current, required){
 module.exports = {
 
     // flights data
-    getAllFlights(req, res){
+    getAllFlights(req, res){    
         model.readFlights((err, result)=>{
             if(err) {
                 console.log(err);
                 return res.status(500);
             }
-            res.json(result);
+            return res.json(result);
         })
     },
 
@@ -33,8 +33,8 @@ module.exports = {
             if(err) throw err;
 
             // check for result
-            if(result.length === 0) return res.status(400).json({msg: `No user with name: ${req.params.username}`});
-            res.json({result});
+            if(!result) return res.status(400).json({msg: `No user with name: ${req.params.username}`});
+            res.json({user:result});
         })
     },
 
@@ -51,12 +51,12 @@ module.exports = {
       model.readUser(req.body.username, (err,result)=>{
           if(err) throw err;
           // check for results
-          if(result.length === 0) {
+          if(!result) {
             res.status(400).json({msg: "user doesn`t exist"})
           } else {
             // compare hash and password from request
-            bcrypt.compare(password,result[0].pass_hash, (err, result)=>{
-                if(result){
+            bcrypt.compare(password,result.pass_hash, (err, compared)=>{
+                if(compared){
                     res.json({msg:"authorized"});
                 } else {
                     res.status(400).send({msg: "wrong user data"});
