@@ -1,0 +1,16 @@
+{
+  "name": "apieclient",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "Vitalii Hrinchuk",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^4.1.2",
+    "electron-reload": "^1.4.0"
+  }
+}
