@@ -1,8 +1,7 @@
 const model = require('../models/Model');
 const bcrypt = require('bcrypt');
 
-
-
+// function that validates req.body fields with required fields
 function validateExistFields(current, required){
     for (let i = 0; i < current.length; i++) {
         let found = required.some( item => item===current[i]);
@@ -38,34 +37,34 @@ module.exports = {
         })
     },
 
-    //login user
-    loginUser(req, res){
-    //check for request fields existing
-      if(!req.body.username || !req.body.password){
-          res.status(400).json({msg:"miss username or password"});
-      }
-      const username = req.body.username;
-      const password = req.body.password;
+    // //login user
+    // loginUser(req, res){
+    // //check for request fields existing
+    //   if(!req.body.username || !req.body.password){
+    //       res.status(400).json({msg:"miss username or password"});
+    //   }
+    //   const username = req.body.username;
+    //   const password = req.body.password;
 
-      // search for user in DB
-      model.readUser(req.body.username, (err,result)=>{
-          if(err) throw err;
-          // check for results
-          if(!result) {
-            res.status(400).json({msg: "user doesn`t exist"})
-          } else {
-            // compare hash and password from request
-            bcrypt.compare(password,result.pass_hash, (err, compared)=>{
-                if(compared){
-                    res.json({msg:"authorized"});
-                } else {
-                    res.status(400).send({msg: "wrong user data"});
-                }
-            })
-          }
+    //   // search for user in DB
+    //   model.readUser(req.body.username, (err,result)=>{
+    //       if(err) throw err;
+    //       // check for results
+    //       if(!result) {
+    //         res.status(400).json({msg: "user doesn`t exist"})
+    //       } else {
+    //         // compare hash and password from request
+    //         bcrypt.compare(password,result.pass_hash, (err, compared)=>{
+    //             if(compared){
+    //                 res.json({msg:"authorized"});
+    //             } else {
+    //                 res.status(400).send({msg: "wrong user data"});
+    //             }
+    //         })
+    //       }
         
-      })
-    },
+    //   })
+    // },
 
     // create new user
     createUser(req,res){
@@ -118,6 +117,9 @@ module.exports = {
                 res.status(500); 
                 throw err;
             }
+            console.log("result is: ", data);
+            
+            req.io.emit('newFlight', {status: "data updated"});
             return res.json({msg:"added"})
         });
 

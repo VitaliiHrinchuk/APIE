@@ -27,7 +27,6 @@ router.post('/login', (req, res, next)=>{
             //create new token
 
             const token = jwt.sign({user}, 'secretkey',{expiresIn: "6h"});
-
             return res.json({user, token});
         });
     })(req,res);
