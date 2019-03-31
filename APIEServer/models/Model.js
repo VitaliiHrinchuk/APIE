@@ -52,6 +52,14 @@ class Model {
             return callback(err, result);
         })
     }
+
+    readFlightById(id, callback){
+        let query = "SELECT * FROM flights WHERE id = ?";
+        this.db.query(query, [parseInt(id)], (err, result)=>{
+            if(!result) return callback(err, false);
+            return callback(err, result[0]);
+        });
+    }
 }
 
 module.exports = new Model();

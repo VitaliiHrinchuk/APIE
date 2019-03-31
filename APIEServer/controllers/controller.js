@@ -11,6 +11,14 @@ function validateExistFields(current, required){
 }
 
 
+function getInsertedRow(id, callback){
+	model.readFlightById(id, (err, result)=>{
+		if(err) return callback(err);
+		if(!result) return callback(null, false);
+		return callback(null, result)
+	})
+}
+
 module.exports = {
 
     // flights data
@@ -117,9 +125,16 @@ module.exports = {
                 res.status(500); 
                 throw err;
             }
-            console.log("result is: ", data);
+            model.readFlightById(result.insertId, (err, flight)=>{
+				if(err) {
+					console.log(err);
+					return req.io.emit('newFlight', {status:"false"})
+				};
+            	console.log("result is: ", flight);
+            	return req.io.emit('newFlight', {status:"true", flight: flight});
+			})
+
             
-            req.io.emit('newFlight', {status: "data updated"});
             return res.json({msg:"added"})
         });
 
