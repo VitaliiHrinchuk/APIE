@@ -1,6 +1,8 @@
 
 const axios = require('axios');
 const ipc = require('electron').ipcRenderer;
+const remote = require('electron').remote;
+
 
 
 const URL = "http://127.0.0.1:5000/auth/login/";
@@ -72,3 +74,4 @@ document.getElementById('password').addEventListener('keypress', (event)=>{
 document.getElementById('username').addEventListener('keypress', (event)=>{
     if(event.keyCode === 13) login();
 });
+document.getElementById('exitBtn').addEventListener('click', ()=>remote.getCurrentWindow().close())

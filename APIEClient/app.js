@@ -68,5 +68,6 @@ ipc.on('logged', (event, arg)=>{
     authWin.hide();    
 })
 ipc.on('setuser',(event, arg)=>{
-    event.returnValue = {token: userToken, type: userType};
+    const userData = {token: userToken, type: userType};
+    event.returnValue = userData;
 })

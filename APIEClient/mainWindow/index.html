@@ -9,24 +9,25 @@
     <title>APIE</title>
 </head>
 <body>
-    <button id="addDataBtn" class="addData">Add Data</button>
-    <div id="modal-bg" class="modal-bg">
+    <button id="addDataBtn" class="addData ">Add Data</button>
+    <button id="exitBtn" class="exitBtn ">Exit</button>
+    <div id="modal-bg" class="modal-bg ">
         <div class="modal-data">
             <img src="./assets/img/cancel.png" alt="" id="modal-close" class="modal-close">
             <h1>Add New Flight</h1>
             <label for="flight">Flight</label>
-            <input type="text" name="flight">
-            <label for="flight">Type</label>
-            <input type="text" name="type">
-            <label for="flight">Departure</label>
-            <input type="text" name="departure">
+            <input id="post_flight" type="text" name="flight">
+            <label  for="flight">Type</label>
+            <input id="post_type" type="text" name="type">
+            <label  for="flight">Departure</label>
+            <input id="post_departure" type="text" name="departure">
             <label for="flight">Arrival</label>
-            <input type="text" name="arrival">
+            <input id="post_arrival" type="text" name="arrival">
             <label for="flight">Number</label>
-            <input type="text" name="number">
+            <input id="post_number" type="text" name="number">
             <label for="flight">Access</label>
-            <input type="text" name="access">
-            <button class="modal-submit">Submit</button>
+            <input id="post_access" type="text" name="access">
+            <button id="post_sumbit" class="modal-submit">Submit</button>
         </div>
     </div>
     
