@@ -28,9 +28,9 @@ class Model {
 
     // read all data about user by username
     readUser(username,callback){
-        let query = "SELECT * FROM `users` WHERE `username` = ? LIMIT 1";
+        let query = "SELECT * FROM `users` WHERE `username` = ?";
         this.db.query(query,[username], (err, result)=>{
-            if(result.length === 0) return callback(err,false);
+            if(!result) return callback(err,false);
             return callback(err, result[0]);
    
         })

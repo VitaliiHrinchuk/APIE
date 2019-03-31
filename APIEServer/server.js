@@ -4,7 +4,7 @@ const server = express();
 const mysql = require('mysql');
 const http = require('http').Server(server);
 const io = require('socket.io')(http, {
-  path: '/test'
+  path: '/socket'
 });
 
 const ioController = require('./socket')(io);

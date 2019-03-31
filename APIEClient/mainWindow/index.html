@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./assets/css/tabulator_semantic-ui.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>APIE</title>
+</head>
+<body>
+    <button id="addDataBtn" class="addData">Add Data</button>
+    <div id="modal-bg" class="modal-bg">
+        <div class="modal-data">
+            <img src="./assets/img/cancel.png" alt="" id="modal-close" class="modal-close">
+            <h1>Add New Flight</h1>
+            <label for="flight">Flight</label>
+            <input type="text" name="flight">
+            <label for="flight">Type</label>
+            <input type="text" name="type">
+            <label for="flight">Departure</label>
+            <input type="text" name="departure">
+            <label for="flight">Arrival</label>
+            <input type="text" name="arrival">
+            <label for="flight">Number</label>
+            <input type="text" name="number">
+            <label for="flight">Access</label>
+            <input type="text" name="access">
+            <button class="modal-submit">Submit</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div id="example-table"></div>
+    </div>
+    <script src="./assets/js/index.js"></script>
+</body>
+</html>

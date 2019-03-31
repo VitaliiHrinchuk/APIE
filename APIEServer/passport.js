@@ -25,7 +25,7 @@ passport.use(new LocalStrategy(
             bcrypt.compare(password, result.pass_hash, (err, compared)=>{
                 if(err) throw err;
                 if(!compared) return callback(null, false, {message:"incorrect username or password"});                
-                return callback(null, result.username, {message:"logged in succesfully"})
+                return callback(null, {username: result.username, type: result.type}, {message:"logged in succesfully"})
             } );
         });
     } ));
@@ -35,7 +35,9 @@ passport.use(new JWTStrategy({
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
     secretOrKey: "secretkey"
     },
-    (jwtPayload, callback)=>{        
+    (jwtPayload, callback)=>{     
+    
+           
         model.readUser(jwtPayload.user, (err, result)=>{
             if(err) return callback(err);
             if(!result) callback(null, false);

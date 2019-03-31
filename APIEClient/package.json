@@ -2,7 +2,7 @@
   "name": "apieclient",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron ."
@@ -12,5 +12,10 @@
   "devDependencies": {
     "electron": "^4.1.2",
     "electron-reload": "^1.4.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "socket.io-client": "^2.2.0",
+    "tabulator-tables": "^4.2.3"
   }
 }

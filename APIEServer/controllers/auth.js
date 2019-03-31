@@ -15,7 +15,7 @@ router.post('/login', (req, res, next)=>{
         if(err || !user){
             return res.status(400).json({
                 msg: info ? info.message : "Login failed",
-                user: user
+                logged: false
             });
         }
 
@@ -26,8 +26,8 @@ router.post('/login', (req, res, next)=>{
 
             //create new token
 
-            const token = jwt.sign({user}, 'secretkey',{expiresIn: "6h"});
-            return res.json({user, token});
+            const token = jwt.sign({user:user.username}, 'secretkey',{expiresIn: "6h"});
+            return res.json({username: user.username, type:user.type, token, logged: true});
         });
     })(req,res);
 
