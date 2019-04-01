@@ -17,7 +17,7 @@ if(userData.type == USER_TYPES.telegraph){
 }
 
 
-const MAIN_URL = "http://localhost:5000/";
+const MAIN_URL = "https://apie.herokuapp.com/";
 // const SOCKET_URL = `${MAIN_URL}socket`;
 const API_URL = `${MAIN_URL}api/`;
 
@@ -27,6 +27,10 @@ axios.defaults.headers.common['authorization'] = 'Bearer '+userData.token;
 
 
 const modal = document.getElementById('modal-bg');
+const loader = document.getElementById('loader');
+const statusEl = document.getElementById('status');
+loader.style.display = "block";
+
 
 
 // function that posts new data to server
@@ -53,6 +57,26 @@ function postData(){
 }
 
 
+function changeStatus(element, status){
+    switch (status) {
+        case 0:
+            element.classList.add('status-offline');
+            element.classList.remove('status-online', 'status-process');
+            element.innerHTML = 'Status: offline';
+            break;
+        case 1:
+            element.classList.add('status-online');
+            element.classList.remove('status-offline', 'status-process');
+            element.innerHTML = 'Status: online';
+            break;
+        case 2:
+            element.classList.add('status-process');
+            element.classList.remove('status-offline', 'status-online');
+            element.innerHTML = 'Status: loading';
+            break;
+    }
+}
+
 let tabledata = [];
 
 
@@ -62,7 +86,7 @@ var table = new Tabulator("#example-table", {
     layout:"fitColumns", //fit columns to width of table (optional)
     paginationSize:12,
     pagination:"local",
- 
+    paginationAddRow:"table",
     columns:[ //Define Table Columns
         {title:"Flight", field:"flight",headerSort:false},
         {title:"Type", field:"type",headerSort:false},
@@ -78,9 +102,10 @@ var table = new Tabulator("#example-table", {
 axios.get(API_URL+"flights/").then(res=>{
     console.log(res);
     table.addData(res.data.reverse());
+    loader.style.display = "none";
 }, err=>{
     console.log(err);
-    
+    loader.style.display = "none";
 })
 
 
@@ -88,17 +113,19 @@ axios.get(API_URL+"flights/").then(res=>{
 let socket = io(MAIN_URL, {path: '/socket'});
 
 socket.on('connect', (data)=>{
-
+    changeStatus(statusEl, 2);
     socket.on('authenticated', ()=>{
         console.log('connected to socket');
-    
+        changeStatus(statusEl, 1);
     }).emit('authenticate', {token: userData.token})
     
 })
-
+socket.on('disconnect', ()=>{
+    changeStatus(statusEl, 0);
+})
 socket.on('newFlight', (data)=>{
     console.log(data); 
-    table.addData(data.flight, true).then(rows=>{
+    table.addData(data.flight, true, 0).then(rows=>{
         console.log(rows);
         
         // adding animation on data updates
