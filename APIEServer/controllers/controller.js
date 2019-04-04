@@ -137,7 +137,39 @@ module.exports = {
             
             return res.json({msg:"added"})
         });
+    },
+    updateFlight(req, res){
+        let requiredFields = ["flight","type","departure", "arrival", "number", "access"];
+        let check = validateExistFields(Object.keys(req.body).push(req.body.id), requiredFields);
 
+        if(!check) return res.status(400).json({msg:"missed required fields"})
 
+        // create object with flight data
+        let data = {
+            flight:        req.body.flight,
+            type:          req.body.type,
+            departure:     req.body.departure,
+            arrival:       req.body.arrival,
+            number:        req.body.number,
+            access:        req.body.access
+        }
+        let id = req.body.id;
+        model.updateFlight(data, id, (err, result)=>{
+            if(err) {
+                res.status(500); 
+                throw err;
+            }
+            model.readFlightById(id, (err, flight)=>{
+				if(err) {
+					console.log(err);
+					return req.io.emit('update', {status:"false"})
+				};
+            	console.log("result is: ", flight);
+            	return req.io.emit('update', {status:"true", flight: flight});
+			})
+
+            
+            return res.json({msg:"updated"})
+        });
     }
 }

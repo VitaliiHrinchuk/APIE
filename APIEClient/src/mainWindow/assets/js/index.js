@@ -17,8 +17,8 @@ if(userData.type == USER_TYPES.telegraph){
 }
 
 
-// const MAIN_URL = "https://apie.herokuapp.com/";
-const MAIN_URL = "http://localhost:5000/";
+const MAIN_URL = "https://apie.herokuapp.com/";
+// const MAIN_URL = "http://localhost:5000/";
 // const SOCKET_URL = `${MAIN_URL}socket`;
 const API_URL = `${MAIN_URL}api/`;
 

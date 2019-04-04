@@ -5,8 +5,8 @@ const remote = require('electron').remote;
 
 
 
-// const URL = "https://apie.herokuapp.com/auth/login/";
-const URL = "http://localhost:5000/auth/login/";
+const URL = "https://apie.herokuapp.com/auth/login/";
+// const URL = "http://localhost:5000/auth/login/";
 
 let usernameField = document.getElementById('username');
 let passwordField = document.getElementById('password');

@@ -53,6 +53,14 @@ class Model {
         })
     }
 
+    updateFlight(data, id, callback){
+        // let query = "UPDATE flights SET flight = ?, type = ?,departure = ?,arrival = ?,number = ?,access = ? WHERE id = ?";
+        let query = "UPDATE flights SET ? WHERE id = ?";
+        this.db.query(query, [data, id],(err, result)=>{
+            return callback(err, result);
+        })
+    }
+
     readFlightById(id, callback){
         let query = "SELECT * FROM flights WHERE id = ?";
         this.db.query(query, [parseInt(id)], (err, result)=>{

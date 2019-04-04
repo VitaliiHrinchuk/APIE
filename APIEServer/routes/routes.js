@@ -59,6 +59,7 @@ const controller = require('../controllers/controller');
 
 router.get('/flights/',controller.getAllFlights);
 router.post('/flights/', controller.postFlight);
+router.put('/flights/', controller.updateFlight);
 
 router.get('/user/:username', controller.getUser);
 router.post('/user/create/', controller.createUser);

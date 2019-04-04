@@ -6,6 +6,12 @@ let db = mysql.createConnection({
     password: "IyDf6wVH0E",
     database: "bbhdKgtN9L"
 });
+// let db = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "",
+//     database: "apie"
+// });
 
 db.connect((err) => {
     if(err) throw err;
