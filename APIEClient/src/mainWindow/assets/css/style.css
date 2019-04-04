@@ -103,12 +103,17 @@ html, body{
     cursor: pointer;
 }
 
-.fading-row{
+.fading-row-add{
 
-    animation-name: color-fade;
+    animation-name: color-fade-add;
     animation-duration: 4s;
     animation-iteration-count: 1;
 
+}
+.fading-row-upd{
+  animation-name: color-fade-upd;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
 }
 .loader{
     position: absolute;
@@ -255,12 +260,19 @@ html, body{
               transform: scale(1);
     }
   }
-@keyframes color-fade{
+@keyframes color-fade-add{
     from{
         background: lightblue;
     } to{
         background: #fff;
     }
+}
+@keyframes color-fade-upd{
+  from{
+      background: rgb(228, 250, 101);
+  } to{
+      background: #fff;
+  }
 }
 #example-table{
     

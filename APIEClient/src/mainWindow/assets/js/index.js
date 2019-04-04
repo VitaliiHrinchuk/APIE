@@ -17,7 +17,8 @@ if(userData.type == USER_TYPES.telegraph){
 }
 
 
-const MAIN_URL = "https://apie.herokuapp.com/";
+// const MAIN_URL = "https://apie.herokuapp.com/";
+const MAIN_URL = "http://localhost:5000/";
 // const SOCKET_URL = `${MAIN_URL}socket`;
 const API_URL = `${MAIN_URL}api/`;
 
@@ -56,6 +57,19 @@ function postData(){
     }
 }
 
+function updateData(data){
+    if(userData.type == USER_TYPES.telegraph){
+ 
+        axios.put(`${API_URL}flights/`, data).then(res=>{
+            console.log(res);
+            
+        }, err=>{
+            throw err;
+        })
+    } else {
+        return;
+    }
+}
 
 function changeStatus(element, status){
     switch (status) {
@@ -87,14 +101,23 @@ var table = new Tabulator("#example-table", {
     paginationSize:12,
     pagination:"local",
     paginationAddRow:"table",
+    cellEdited:function(data){
+
+        let newData = data._cell.row.data;
+        console.log(newData);
+        updateData(newData);
+    
+        
+    },
     columns:[ //Define Table Columns
-        {title:"Flight", field:"flight",headerSort:false},
-        {title:"Type", field:"type",headerSort:false},
-        {title:"Departure", field:"departure",headerSort:false},
-        {title:"Arrival", field:"arrival",headerSort:false},
-        {title:"Number", field:"number",headerSort:false},
-        {title:"Access", field:"access",headerSort:false},
-        {title:"Created", field:"creation_date",headerSort:false},
+        {title:"id",    field:"id",       headerSort:false, visible: false},
+        {title:"Flight",    field:"flight",       headerSort:false, editor: userData.type == USER_TYPES.telegraph ? true : false},
+        {title:"Type",      field:"type",         headerSort:false, editor: userData.type == USER_TYPES.telegraph ? true : false},
+        {title:"Departure", field:"departure",    headerSort:false, editor: userData.type == USER_TYPES.telegraph ? true : false},
+        {title:"Arrival",   field:"arrival",      headerSort:false, editor: userData.type == USER_TYPES.telegraph ? true : false},
+        {title:"Number",    field:"number",       headerSort:false, editor: userData.type == USER_TYPES.telegraph ? true : false},
+        {title:"Access",    field:"access",       headerSort:false, editor: userData.type == USER_TYPES.telegraph ? true : false},
+        {title:"Created",   field:"creation_date",headerSort:false, editor: userData.type == USER_TYPES.telegraph ? true : false},
     ],
  
 });
@@ -130,17 +153,44 @@ socket.on('newFlight', (data)=>{
         
         // adding animation on data updates
         let element = rows[0]._row.element;
-        element.classList.add('fading-row');
+        element.classList.add('fading-row-add');
 
         // remove animation class on end of animation
         element.addEventListener('animationend', ()=>{
-            element.classList.remove('fading-row');
+            element.classList.remove('fading-row-add');
         })
     });
     let audio = new Audio("./assets/sounds/notification.mp3");
     audio.play();
 })
+socket.on('update', (data)=>{
+    console.log(data);
+ 
+    
+    console.log("updating...");
+    
+    table.updateData([data.flight]).then(()=>{
+    
+        let row = table.searchRows("id", "=", data.flight.id);
+        let element = row[0]._row.element;
+        console.log(row);
+        
+        table.setPageToRow(row[0]);
+        element.classList.add('fading-row-upd');
 
+        // remove animation class on end of animation
+        element.addEventListener('animationend', ()=>{
+            element.classList.remove('fading-row-upd');
+        })
+        
+    }, err=>{
+        console.log(err);
+        
+    });
+    let audio = new Audio("./assets/sounds/update.wav");
+    audio.play();
+    
+});
 socket.on('error', (err)=>{
     console.log(err);
 })
