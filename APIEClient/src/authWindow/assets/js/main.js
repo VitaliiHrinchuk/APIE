@@ -1,36 +1,41 @@
 
+/**
+ * модуль, ща надає функціонал для здійснення AJAX-запитів
+ */
 const axios = require('axios');
+
 const ipc = require('electron').ipcRenderer;
+
+/**Посилання на дані головного процесу */
 const remote = require('electron').remote;
 
-
-
+/**Посилання до API на сторінку авторизації  */
 const URL = "https://apie.herokuapp.com/auth/login/";
 // const URL = "http://localhost:5000/auth/login/";
 
+/**Елемент вводу імені користувача */
 let usernameField = document.getElementById('username');
+/**Елемент вводу паролю користувача */
 let passwordField = document.getElementById('password');
 
 usernameField.addEventListener('input', ()=>usernameField.classList.remove('errorInput'))
 passwordField.addEventListener('input', ()=>passwordField.classList.remove('errorInput'))
 
+/**Елемент, який відображаєтсья при завантажені даних */
 let loader = document.getElementById('loader')
 
 
 
-
+/**
+ *
+ * Ця функція-callback здійснює авторизацію користувача
+ */
 function login(){
     let body = {
         username: usernameField.value,
         password: passwordField.value
     };
-    // let options = {
-    //     method:"POST",
-    //     headers: {"Content-Type": "application/json"}, 
-    //     body:JSON.stringify(body),
-    //     credentials:'same-origin',
 
-    // }
     loader.style.display = "block";
     document.getElementById('errorBlock').style.opacity = "0";
     usernameField.classList.remove('errorInput');
@@ -54,25 +59,21 @@ function login(){
         loader.style.display = "none";
     })
     
-    // let fetchLogin = fetch(`${URL}/auth/login/`, options).then(res=>{
-    //     return res.json();
-    // }, (err)=>{
-    //     loader.style.display = "none";
-    //     console.log("error");
-        
-    //     console.log(err.message);
-    // }).then(data=>{
-    //     loader.style.display = "none";
-    //     console.log(data);
-        
-    // })
 }
 
+
 document.getElementById('loginBtn').addEventListener('click', login);
+/**
+ * Обробник взаємодії користувача із додатком
+ * @param {String} event назва події
+ * @param {functio} callback обробник події
+ */
 document.getElementById('password').addEventListener('keypress', (event)=>{
     if(event.keyCode === 13) login();
 });
+
 document.getElementById('username').addEventListener('keypress', (event)=>{
     if(event.keyCode === 13) login();
 });
+
 document.getElementById('exitBtn').addEventListener('click', ()=>remote.getCurrentWindow().close())

@@ -13,6 +13,7 @@ const model = require('./models/Model');
 
 
 // config local strategy for username+password auth
+// Створення нової локальної стратегії для авторизації користувача за допомогою імені та паролю
 passport.use(new LocalStrategy(
     (username, password, callback)=>{
         
@@ -31,6 +32,7 @@ passport.use(new LocalStrategy(
     } ));
 
 // config JSON WEB TOKEN strategy for verifying user every request
+//Створення нової JWT-стретегії для верифікації запиту по токену
 passport.use(new JWTStrategy({
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
     secretOrKey: "secretkey"

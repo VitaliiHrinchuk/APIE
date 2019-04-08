@@ -1,0 +1,2065 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>apieclient 1.0.0 | Documentation</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' rel='stylesheet' />
+  <link href='assets/style.css' rel='stylesheet' />
+  <link href='assets/github.css' rel='stylesheet' />
+  <link href='assets/split.css' rel='stylesheet' />
+</head>
+<body class='documentation m0'>
+    <div class='flex'>
+      <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'>apieclient</h3>
+          <div class='mb1'><code>1.0.0</code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+              
+                
+                <li><a
+                  href='#path'
+                  class="">
+                  path
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#url'
+                  class="">
+                  url
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#ipc'
+                  class="">
+                  ipc
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#authwin'
+                  class="">
+                  authWin
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#mainwin'
+                  class="">
+                  mainWin
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#createauthwindow'
+                  class="">
+                  createAuthWindow
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#loadurl'
+                  class="">
+                  loadURL
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#loadurl'
+                  class="">
+                  loadURL
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#createmainwindow'
+                  class="">
+                  createMainWindow
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#on'
+                  class="">
+                  on
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#on'
+                  class="">
+                  on
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#usertoken'
+                  class="">
+                  userToken
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#usertype'
+                  class="">
+                  userType
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#authorization'
+                  class="">
+                  authorization
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#axios'
+                  class="">
+                  axios
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#remote'
+                  class="">
+                  remote
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#url'
+                  class="">
+                  URL
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#usernamefield'
+                  class="">
+                  usernameField
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#passwordfield'
+                  class="">
+                  passwordField
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#loader'
+                  class="">
+                  loader
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#login'
+                  class="">
+                  login
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#addeventlistener'
+                  class="">
+                  addEventListener
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#celledited'
+                  class="">
+                  cellEdited
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#table'
+                  class="">
+                  table
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#require'
+                  class="">
+                  require
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#user_types'
+                  class="">
+                  USER_TYPES
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#'
+                  class="">
+                  
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#main_url'
+                  class="">
+                  MAIN_URL
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#postdata'
+                  class="">
+                  postData
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#io'
+                  class="">
+                  io
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#changestatus'
+                  class="">
+                  changeStatus
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#socket'
+                  class="">
+                  socket
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#tabulator'
+                  class="">
+                  Tabulator
+                  
+                </a>
+                
+                </li>
+              
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='https://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
+        </div>
+      </div>
+      <div id='split-right' class='relative overflow-auto height-viewport-100'>
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='path'>
+      path
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Модуль Path який відповідає за побудову шляхів</p>
+
+    <div class='pre p1 fill-light mt0'>path</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='url'>
+      url
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Модуль, що надає змогу керувати відносними шляхами</p>
+
+    <div class='pre p1 fill-light mt0'>url</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='ipc'>
+      ipc
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>екземпляр класу EventEmmiter, якйи надає змогу асинхронно взаємодіяти з процессами рендерингу із головного процесу</p>
+
+    <div class='pre p1 fill-light mt0'>ipc</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='authwin'>
+      authWin
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>об`єкти класу BrowserWindow, вікно авторизації</p>
+
+    <div class='pre p1 fill-light mt0'>authWin</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='mainwin'>
+      mainWin
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>об`єкти класу BrowserWindow, головне вікно</p>
+
+    <div class='pre p1 fill-light mt0'>mainWin</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='createauthwindow'>
+      createAuthWindow
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Функція, яка свторює вікно авторизації</p>
+
+    <div class='pre p1 fill-light mt0'>createAuthWindow()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='loadurl'>
+      loadURL
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>завантажує html-файл для рендерингу</p>
+
+    <div class='pre p1 fill-light mt0'>loadURL</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='loadurl'>
+      loadURL
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>завантажує html-файл для рендерингу</p>
+
+    <div class='pre p1 fill-light mt0'>loadURL</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='createmainwindow'>
+      createMainWindow
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Функція, яка свторює головне вікно</p>
+
+    <div class='pre p1 fill-light mt0'>createMainWindow()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='on'>
+      on
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Опис обробнику для подій додатку</p>
+
+    <div class='pre p1 fill-light mt0'>on</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>event</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    назва події
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>function</span> <code class='quiet'>(any)</code>
+	    коллбек функція, яка генерує вікно авторизації
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='on'>
+      on
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>on</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>event</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    назва події
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>function</span> <code class='quiet'>(any)</code>
+	    функція-обробник
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='usertoken'>
+      userToken
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Токен користувача</p>
+
+    <div class='pre p1 fill-light mt0'>userToken</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='usertype'>
+      userType
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Ти користувача</p>
+
+    <div class='pre p1 fill-light mt0'>userType</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='authorization'>
+      authorization
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Встановлення параметру авторизації в заголовки по замовчуванню</p>
+
+    <div class='pre p1 fill-light mt0'>authorization</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='axios'>
+      axios
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>модуль, ща надає функціонал для здійснення AJAX-запитів</p>
+
+    <div class='pre p1 fill-light mt0'>axios</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='remote'>
+      remote
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Посилання на дані головного процесу</p>
+
+    <div class='pre p1 fill-light mt0'>remote</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='url'>
+      URL
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Посилання до API на сторінку авторизації</p>
+
+    <div class='pre p1 fill-light mt0'>URL</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='usernamefield'>
+      usernameField
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Елемент вводу імені користувача</p>
+
+    <div class='pre p1 fill-light mt0'>usernameField</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='passwordfield'>
+      passwordField
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Елемент вводу паролю користувача</p>
+
+    <div class='pre p1 fill-light mt0'>passwordField</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='loader'>
+      loader
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Елемент, який відображаєтсья при завантажені даних</p>
+
+    <div class='pre p1 fill-light mt0'>loader</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='login'>
+      login
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Ця функція-callback здійснює авторизацію користувача</p>
+
+    <div class='pre p1 fill-light mt0'>login()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='addeventlistener'>
+      addEventListener
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Обробник взаємодії користувача із додатком</p>
+
+    <div class='pre p1 fill-light mt0'>addEventListener</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>event</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>)</code>
+	    назва події
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>callback</span> <code class='quiet'>(functio)</code>
+	    обробник події
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='celledited'>
+      cellEdited
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Обробник події, який реагує на змінення даних в таблиці і синхронізує їх із сервером</p>
+
+    <div class='pre p1 fill-light mt0'>cellEdited(data: any)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>data</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='table'>
+      table
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>table</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='require'>
+      require
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>require</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='user_types'>
+      USER_TYPES
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Об`єкт, що містить типи користувачів</p>
+
+    <div class='pre p1 fill-light mt0'>USER_TYPES</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id=''>
+      
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>ініціалізація події  setuser</p>
+
+    <div class='pre p1 fill-light mt0'></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='main_url'>
+      MAIN_URL
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Посилання на корінь API</p>
+
+    <div class='pre p1 fill-light mt0'>MAIN_URL</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='postdata'>
+      postData
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>функція, що здійснює post-запит до серверу для свторення нового запису</p>
+
+    <div class='pre p1 fill-light mt0'>postData()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='io'>
+      io
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>io</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='changestatus'>
+      changeStatus
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>функція, яка змінює стиль і напис елемента</p>
+
+    <div class='pre p1 fill-light mt0'>changeStatus(element: any, status: any)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>element</span> <code class='quiet'>(any)</code>
+	    елемент для зміни
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>status</span> <code class='quiet'>(any)</code>
+	    статус з`єднання
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='socket'>
+      socket
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>ініціалізація сокету</p>
+
+    <div class='pre p1 fill-light mt0'>socket</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='tabulator'>
+      Tabulator
+    </h3>
+    
+    
+  </div>
+  
+
+  
+    <div class='pre p1 fill-light mt0'>Tabulator</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+      </div>
+    </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/split.js'></script>
+  <script src='assets/site.js'></script>
+</body>
+</html>

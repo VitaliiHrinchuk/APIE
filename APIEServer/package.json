@@ -5,11 +5,13 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "dev": "nodemon server"
+    "dev": "nodemon server",
+    "docs": "documentation build server.js, passport.js, models/**, routes/**, controllers/** -f html -o  docs  "
   },
   "author": "Vitalii Hrinchuk",
   "license": "ISC",
   "devDependencies": {
+    "documentation": "^9.3.1",
     "nodemon": "^1.18.10"
   },
   "dependencies": {

@@ -2,6 +2,11 @@ const model = require('../models/Model');
 const bcrypt = require('bcrypt');
 
 // function that validates req.body fields with required fields
+/**
+ * Функція, яка виконує валідацію масивів
+ * @param {Array} current поточний масив
+ * @param {Array} required контрольний масив
+ */
 function validateExistFields(current, required){
     for (let i = 0; i < current.length; i++) {
         let found = required.some( item => item===current[i]);
@@ -11,17 +16,14 @@ function validateExistFields(current, required){
 }
 
 
-function getInsertedRow(id, callback){
-	model.readFlightById(id, (err, result)=>{
-		if(err) return callback(err);
-		if(!result) return callback(null, false);
-		return callback(null, result)
-	})
-}
-
 module.exports = {
 
     // flights data
+    /**
+     * Функція-обробник запиту на сервер, яка обробляє запит на отримання всіх записів flights 
+     * @param {Object} req запит від Клієнта
+     * @param {Object} res відповідь від Сервера
+     */
     getAllFlights(req, res){    
         model.readFlights((err, result)=>{
             if(err) {
@@ -33,6 +35,11 @@ module.exports = {
     },
 
     //user data
+    /**
+     * Функція-обробник запиту на сервер, яка обробляє запит на отримання даних про користувача
+     * @param {Object} req запит від Клієнта
+     * @param {Object} res відповідь від Сервера
+     */
     getUser(req, res){
         // check for request username existence
         if(!req.params.username) return res.status(400).json({msg:'No username'});
@@ -45,36 +52,12 @@ module.exports = {
         })
     },
 
-    // //login user
-    // loginUser(req, res){
-    // //check for request fields existing
-    //   if(!req.body.username || !req.body.password){
-    //       res.status(400).json({msg:"miss username or password"});
-    //   }
-    //   const username = req.body.username;
-    //   const password = req.body.password;
-
-    //   // search for user in DB
-    //   model.readUser(req.body.username, (err,result)=>{
-    //       if(err) throw err;
-    //       // check for results
-    //       if(!result) {
-    //         res.status(400).json({msg: "user doesn`t exist"})
-    //       } else {
-    //         // compare hash and password from request
-    //         bcrypt.compare(password,result.pass_hash, (err, compared)=>{
-    //             if(compared){
-    //                 res.json({msg:"authorized"});
-    //             } else {
-    //                 res.status(400).send({msg: "wrong user data"});
-    //             }
-    //         })
-    //       }
-        
-    //   })
-    // },
-
     // create new user
+    /**
+     * Функція-обробник запиту на сервер, яка обробляє запит на створення нового користувача
+     * @param {Object} req запит від Клієнта
+     * @param {Object} res відповідь від Сервера
+     */
     createUser(req,res){
         //check for request fields existing
         if(!req.body.password || !req.body.username || !req.body.type) return res.status(400).json({msg: "Bad request"});
@@ -104,6 +87,11 @@ module.exports = {
     },
 
     //insert new data to flights 
+    /**
+     * Функція-обробник запиту на сервер, яка обробляє запит на створення нового рейсу flights
+     * @param {Object} req запит від Клієнта
+     * @param {Object} res відповідь від Сервера
+     */
     postFlight(req, res){
         let requiredFields = ["flight","type","departure", "arrival", "number", "access"];
         let check = validateExistFields(Object.keys(req.body), requiredFields);
@@ -138,6 +126,11 @@ module.exports = {
             return res.json({msg:"added"})
         });
     },
+    /**
+     * Функція-обробник запиту на сервер, яка обробляє запит на оновлення даних про рейс flights
+     * @param {Object} req запит від Клієнта
+     * @param {Object} res відповідь від Сервера
+     */
     updateFlight(req, res){
         let requiredFields = ["flight","type","departure", "arrival", "number", "access"];
         let check = validateExistFields(Object.keys(req.body).push(req.body.id), requiredFields);

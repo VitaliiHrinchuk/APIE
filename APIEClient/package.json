@@ -5,20 +5,22 @@
   "main": "./src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron .",
-    "build": "electron-packager . APIE --out=build --asar=true --platform=win32 --arch=x64 --icon=./icon.ico",
+    "start": "set NODE_ENV=development&& electron .",
+    "docs": "documentation build  src/**  -f html -o  docs  ",
+    "build": "electron-packager . APIE --out=build --asar=true --platform=win32 --arch=x64 --icon=./icon.ico --overwrite",
     "dist": "build"
   },
   "author": "Vitalii Hrinchuk",
   "license": "ISC",
-  "build":{
+  "build": {
     "appId": "com.locopio.app",
-    "win":{
+    "win": {
       "target": "nsis"
     }
   },
   "devDependencies": {
     "asar": "^1.0.0",
+    "documentation": "^9.3.1",
     "electron": "^4.1.2",
     "electron-builder": "^20.39.0",
     "electron-packager": "^13.1.1",
